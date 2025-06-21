@@ -1,0 +1,59 @@
+﻿@using Domain.Models
+@model Villa
+
+<h1 class="text-center mb-2">Create Villa</h1>
+
+<div class="card border p-4">
+    <form method="post" enctype="multipart/form-data" asp-action="Create" asp-controller="Villa" class="row">
+
+        <div class="p-3">
+            <div class="form-floating py-1 col-12 ">
+                <input class="form-control shadow" asp-for="@Model.Name" />
+                <label asp-for="@Model.Name" class="ms-1"></label>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-1 col-12 ">
+                <input class="form-control shadow" asp-for="@Model.Price" />
+                <label asp-for="@Model.Price" class="ms-1"></label>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-1 col-12 ">
+                <input class="form-control shadow" asp-for="@Model.Occupancy" />
+                <label asp-for="@Model.Occupancy" class="ms-1"></label>
+                <span asp-validation-for="Occupancy" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-1 col-12 ">
+                <input class="form-control shadow" asp-for="@Model.Sqfeet" />
+                <label asp-for="@Model.Sqfeet" class="ms-1"></label>
+                <span asp-validation-for="Sqfeet" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-1 col-12 ">
+                <input type="file" class="form-control shadow" asp-for="@Model.ImageFile" />
+                <label asp-for="@Model.ImageFile" class="ms-1"></label>
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-1 col-12 ">
+                <input class="form-control shadow" asp-for="@Model.Description" />
+                <label asp-for="@Model.Description" class="ms-1"></label>
+                <span asp-validation-for="Description" class="bg-danger"></span>
+            </div>
+
+            <div class="row justify-content-center align-items-center py-3 px-2">
+                <button type="submit" class="btn btn-success p-3 rounded-1 col-3">
+                    <i class="bi bi-check-circle-fill"></i> Create
+                </button>
+                <div class="bg-danger p-2 col-2 rounded-1 text-center mx-2">
+                    <a class="btn" asp-controller="Villa" asp-action="Index">
+                        <i class="bi bi-x-circle-fill"></i> Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

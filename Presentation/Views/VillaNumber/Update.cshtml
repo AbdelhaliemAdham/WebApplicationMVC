@@ -1,0 +1,52 @@
+﻿@using Domain.Models
+@model VillaNumber
+
+<h1 class="text-center mb-2">Update Villa Number</h1>
+
+<div class="card border p-4">
+	<form method="post" class="row" enctype="multipart/form-data">
+		<input  asp-for="Villa_Number" hidden/>
+		<div class="p-3">
+			<div class="form-floating py-1 col-12 ">
+				<select class="form-select" asp-items="@ViewBag.VillaList" asp-for="@Model.VillaId">
+					<option disabled selected>--Select Villa--</option>
+				</select>
+				@* <input class="form-control shadow" asp-for="@Model.VillaId" /> *@
+				<label asp-for="@Model.VillaId" class="ms-1"></label>
+				<span asp-validation-for="VillaId" class="text-danger"></span>
+
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" disabled asp-for="@Model.Villa_Number" />
+				<label asp-for="@Model.Villa_Number" class="ms-1"></label>
+				<span asp-validation-for="Villa_Number" class="text-danger"></span>
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Create" asp-controller="Villa" asp-for="@Model.Details" />
+				<label asp-for="@Model.Details" class="ms-1"></label>
+				<span asp-validation-for="Details" class="text-danger"></span>
+
+			</div>
+
+
+			<div class="row justify-content-center align-items-center py-3 px-2">
+				<button type="submit" class="btn btn-success p-3 rounded-1 col-3">
+					<i class="bi bi-check-circle-fill"></i> Update
+				</button>
+				<div class="bg-danger p-2 col-2 rounded-1 text-center mx-2">
+					<a class="btn" asp-controller="VillaNumber" asp-action="Index">
+						<i class="bi bi-x-circle-fill"></i>	Cancel
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</div>
+
+
+@section scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+				}

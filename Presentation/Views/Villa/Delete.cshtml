@@ -1,0 +1,70 @@
+﻿@using Domain.Models
+@model Villa
+
+<h1 class="text-center mb-2">Delete Villa</h1>
+
+<div class="card border p-4">
+	<form method="post" class="row" enctype="multipart/form-data">
+		<input asp-for="Id" hidden />
+		<div class="col-9 p-3">
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Delete" disabled asp-controller="Villa" asp-for="@Model.Name" />
+				<label asp-for="@Model.Name" class="ms-1"></label>
+				<span asp-validation-for="Name" class="text-danger"></span>
+
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Delete" disabled asp-controller="Villa" asp-for="@Model.Price" />
+				<label asp-for="@Model.Price" class="ms-1"></label>
+				<span asp-validation-for="Price" class="text-danger"></span>
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Delete" disabled asp-controller="Villa" asp-for="@Model.Occupancy" />
+				<label asp-for="@Model.Occupancy" class="ms-1"></label>
+				<span asp-validation-for="Occupancy" class="text-danger"></span>
+
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Delete" disabled asp-controller="Villa" asp-for="@Model.Sqfeet" />
+				<label asp-for="@Model.Sqfeet" class="ms-1"></label>
+				<span asp-validation-for="Sqfeet" class="text-danger"></span>
+
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Delete" asp-controller="Villa" asp-for="@Model.Image" />
+				<input class="form-control shadow" asp-action="Delete" hidden  asp-controller="Villa" asp-for="@Model.ImageFile" />
+				<label asp-for="@Model.Image" hidden class="ms-1"></label>
+				<span asp-validation-for="ImageFile" class="text-danger"></span>
+				<span asp-validation-for="Image" class="text-danger"></span>
+
+			</div>
+			<div class="form-floating py-1 col-12 ">
+				<input class="form-control shadow" asp-action="Delete" disabled asp-controller="Villa" asp-for="@Model.Description" />
+				<label asp-for="@Model.Description" class="ms-1"></label>
+				<span asp-validation-for="Description" class="bg-danger"></span>
+
+			</div>
+
+			<div class="row justify-content-center align-items-center py-3 px-2">
+				<button type="submit" class="btn btn-danger p-3 rounded-1 col-3">
+					<i class="bi bi-check-trach-fill"></i> Delete
+				</button>
+				<div class="bg-secondary p-2 col-2 rounded-1 text-center mx-2">
+					<a class="btn" asp-controller="Villa" asp-action="Index">
+						<i class="bi bi-x-circle-fill"></i>	Cancel
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-3 align-self-center">
+			<img src="@Model.Image" style="width:150px;border:dotted;"/>
+		</div>
+	</form>
+</div>
+
+
+@section scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+				}
